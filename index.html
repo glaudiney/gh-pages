@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<title>Story Engine</title>
+	<meta charset="utf-8" />
+<script>
+		
+rotate = 0; 
+let agentChoice;
+agentAdress = 'images/agent/';
+engineAdress = 'images/engine/';
+anchorAdress = 'images/anchor/';
+conflictAdress = 'images/conflict/';
+aspectAdress = 'images/aspect/';
+
+function getRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function rotateImage(elemento, grau, ang)
+{
+	elemento.addEventListener("click", function(){ 
+		if(grau == 360){grau = 0} 
+			grau = grau + ang;				
+		elemento.style.transform = "rotate("+grau+"deg)"; 
+	});
+}
+
+document.addEventListener("DOMContentLoaded", function(){ 
+
+	document.getElementById("agente").src = 'images/agent/' + getRandom(1,7) + '.png';
+	document.getElementById("engine").src = 'images/engine/' + getRandom(1,7) + '.png';
+	document.getElementById("anchor").src = 'images/anchor/' + getRandom(1,7) + '.png';
+	document.getElementById("conflict").src = 'images/conflict/' + getRandom(1,7) + '.png';
+
+	rotateImage(document.getElementById("agente"), rotate, 90);
+	rotateImage(document.getElementById("anchor"), rotate, 90);
+	rotateImage(document.getElementById("engine"), rotate, 180);
+	rotateImage(document.getElementById("conflict"), rotate, 180);
+
+				
+});
+			
+</script>
+	</head>
+	<body>
+		<img src="images/agent/1.png" class="" id="agente" alt="Agente" width="230" height="230"/>
+		<img src="images/engine/1.png" class="" id="engine" alt="Mecanismo" width="230" height="230"/>
+		<img src="images/anchor/1.png" class="" id="anchor" alt="Âncora" width="230" height="230"/>
+		<img src="images/conflict/1.png" class="" id="conflict" alt="Conflito" width="230" height="230"/>
+		<!--Aqui você carrega a imagem de sua escolha -->
+		<br />
+	</body>
+</html>
